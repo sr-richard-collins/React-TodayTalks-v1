@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSelectCategory } from '../actions/categoryAction';
@@ -6,13 +6,8 @@ import { fetchCategories } from '../actions/categoryAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IMAGE_BASE_URL } from '../config';
 import googleplayimg from '../assets/img/icon/googleplay.png';
-import { AuthContext } from '../provider/AuthContext';
 
 const Header = () => {
-  const context = useContext(AuthContext);
-  console.log(context); // Debugging line to check context value
-  const { user, logout } = context;
-
   const dispatch = useDispatch();
   const { setting } = useSelector((state) => state.setting);
   const { categories, selectCategory } = useSelector((state) => state.categories);
@@ -113,8 +108,8 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className='col-5'></div>
-          <div className='col-4'>
+          <div className='col-3'></div>
+          <div className='col-6' style={{ alignItems: 'end' }}>
             <div className='header-top-social header-top-social-two'>
               <ul className='list-wrap'>
                 <li className='social-icons'>
@@ -152,24 +147,8 @@ const Header = () => {
                     </Link>
                   </span>
                 </li>
-
-                {user ? (
-                  <>
-                    <span>{user.name}</span>
-                    <button onClick={logout} className='btn'>
-                      Log Out
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <Link to='/login' className='btn'>
-                      Log In
-                    </Link>
-                    <Link to='/register' className='btn'>
-                      Register
-                    </Link>
-                  </>
-                )}
+                <Link to={'/login'} className='btn'>Log In</Link>
+                <Link to={'/register'} className='btn'>Sign Up</Link>
               </ul>
             </div>
             <div className='mobile-nav-toggler'>
@@ -214,7 +193,7 @@ const Header = () => {
                                 onClick={() => {
                                   setActiveCategory((prevActiveCategory) => ({
                                     category: category.name,
-                                    show: !prevActiveCategory.category || prevActiveCategory.category !== category.name ? true : !prevActiveCategory.show
+                                    show: !prevActiveCategory.category || prevActiveCategory.category !== category.name ? false : !prevActiveCategory.show
                                   }));
                                 }}
                                 // onClick={() => toggleSubCategoryShow(category.name)}
