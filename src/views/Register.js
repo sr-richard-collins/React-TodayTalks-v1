@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from '../config/';
 
 const Register = () => {
    return (
@@ -43,7 +44,7 @@ const Register = () => {
 
                         <div className='form-check d-flex justify-content-center mb-5'>
                            <input className='form-check-input me-2' type='checkbox' value='' id='form2Example3c' />
-                           <label className='form-check-label' for='form2Example3c'>
+                           <label className='form-check-label'>
                               I agree all statements in <Link to={'/terms'}>Terms of service</Link>
                            </label>
                         </div>
