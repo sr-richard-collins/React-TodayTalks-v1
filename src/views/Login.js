@@ -38,19 +38,19 @@ const Login = () => {
                         <div data-mdb-input-init className='form-outline mb-4'>
                            <input type='email' id='form3Example3' className='form-control form-control-lg'
                               placeholder='Enter a valid email address' />
-                           <label className='form-label'>Email address</label>
+                           <label className='form-label' for='form3Example3'>Email address</label>
                         </div>
 
                         <div data-mdb-input-init className='form-outline mb-3'>
                            <input type='password' id='form3Example4' className='form-control form-control-lg'
                               placeholder='Enter password' />
-                           <label className='form-label'>Password</label>
+                           <label className='form-label' for='form3Example4'>Password</label>
                         </div>
 
                         <div className='d-flex justify-content-between align-items-center'>
                            <div className='form-check my-0'>
                               <input className='form-check-input me-2' type='checkbox' value='' id='form2Example3' />
-                              <label className='form-check-label'>
+                              <label className='form-check-label' for='form2Example3'>
                                  Remember me
                               </label>
                            </div>
